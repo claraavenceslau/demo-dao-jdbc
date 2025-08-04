@@ -13,12 +13,13 @@ import java.util.Scanner;
 public class Pogram {
 
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         SellerDao sellerDao = DaoFactory.createSellerDao();
 
         System.out.println("==== TEST 1 FindById ====");
         System.out.printf("Digit employee id: ");
-        int id;
-        Seller seller = sellerDao.findById(id = new Scanner(System.in).nextInt());
+        int id = sc.nextInt();
+        Seller seller = sellerDao.findById(id);
         System.out.println(seller);
 
         System.out.println("\n==== TEST 2 FindByDepartment ====");
@@ -44,5 +45,11 @@ public class Pogram {
         seller.setName("Martha Wine");
         sellerDao.update(seller);
         System.out.printf("Update completed! Updated Seller ID: %d\n", seller.getId());
+
+        System.out.println("\n==== TEST 5 Delete ====");
+        System.out.print("Enter the id: ");
+        int idDelete = sc.nextInt();
+        sellerDao.delete(idDelete);
+        System.out.printf("Delete completed! Deleted Seller ID: %d\n", idDelete);
     }
 }
