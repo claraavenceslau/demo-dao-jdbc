@@ -31,9 +31,16 @@ public class Pogram2 {
         System.out.printf("Department ID: %d\n", newDepartment.getId());
 
         System.out.println("\n==== TEST 4 Update ====");
-        department = departmentDao.findById(1);
-        department.setName("Paint");
-        departmentDao.update(department);
+        Department updatedDepartment = new Department();
+        updatedDepartment = departmentDao.findById(1);
+        updatedDepartment.setName("Paint");
+        departmentDao.update(updatedDepartment);
         System.out.printf("Updated completed! Update department ID: %d\n", department.getId());
+
+        System.out.println("\n==== TEST 5 Delete ====");
+        System.out.print("Enter department id: ");
+        int idDelete  = sc.nextInt();
+        departmentDao.delete(idDelete);
+        System.out.printf("Delete complete! Deleted department ID: %d\n", idDelete);
     }
 }

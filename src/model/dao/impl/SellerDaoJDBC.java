@@ -85,7 +85,7 @@ public class SellerDaoJDBC implements SellerDao {
 
             int rowsAffected = ps.executeUpdate();
             if (rowsAffected == 0) {
-                throw new DbException("This seller doesn't exist");
+                throw new DbException("This seller does not exist");
             }
 
         } catch (SQLException e) {
