@@ -7,13 +7,17 @@ import model.entities.Department;
 import model.entities.Seller;
 
 import java.util.Date;
+import java.util.Scanner;
 
 public class Pogram {
 
     public static void main(String[] args) {
         SellerDao sellerDao = DaoFactory.createSellerDao();
 
-        Seller seller = sellerDao.findById(3);
+        System.out.println("=== TEST 1 FINDBYID ===");
+        System.out.printf("Digit employee id: ");
+        int id = new Scanner(System.in).nextInt();
+        Seller seller = sellerDao.findById(id);
         System.out.println(seller);
     }
 }
