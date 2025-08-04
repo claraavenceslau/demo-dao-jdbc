@@ -19,10 +19,15 @@ public class Pogram2 {
         Department department = departmentDao.findById(departmentId);
         System.out.println(department);
 
-        System.out.println("\n==== TEST 2 FindByDepartment ====");
+        System.out.println("\n==== TEST 2 FindAll ====");
         List<Department> departments = departmentDao.findAll();
         for (Department d : departments) {
             System.out.println(d);
         }
+
+        System.out.println("\n==== TEST 3 Insert ====");
+        Department newDepartment = new Department(null, "Music");
+        departmentDao.insert(newDepartment);
+        System.out.printf("Department ID: %d\n", newDepartment.getId());
     }
 }
