@@ -41,6 +41,8 @@ public class SellerDaoJDBC implements SellerDao {
                     int id = rs.getInt(1);
                     obj.setId(id);
                 }
+            }else {
+                throw new DbException("Failed to insert seller");
             }
 
         }catch(SQLException e){
@@ -51,8 +53,26 @@ public class SellerDaoJDBC implements SellerDao {
     }
 
     @Override
-    public void update(Seller seller) {
+    public void update(Seller obj) {
+        PreparedStatement ps = null;
 
+        try{
+            ps = conn.prepareStatement("UPDATE seller SET Name = ?, Email = ?, BirthDate = ?, BaseSalary = ?, DepartmentId = ? WHERE Id = ?");
+
+            ps.setString(1, obj.getName());
+            ps.setString(2, obj.getEmail());
+            ps.setDate(3, new java.sql.Date(obj.getBirthday().getTime()));
+            ps.setDouble(4, obj.getSalary());
+            ps.setInt(5, obj.getDepartment().getId());
+            ps.setInt(6, obj.getId());
+
+            ps.executeUpdate();
+
+        }catch(SQLException e){
+            throw new DbException(e.getMessage());
+        } finally {
+            DB.closeStatement(ps);
+        }
     }
 
     @Override

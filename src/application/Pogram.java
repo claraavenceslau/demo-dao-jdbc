@@ -39,5 +39,10 @@ public class Pogram {
         sellerDao.insert(newSeller);
         System.out.printf("New Seller ID: %d\n", newSeller.getId());
 
+        System.out.println("\n==== TEST 4 Update ====");
+        seller = sellerDao.findById(1);
+        seller.setName("Martha Wine");
+        sellerDao.update(seller);
+        System.out.printf("Update completed! Updated Seller ID: %d\n", seller.getId());
     }
 }
