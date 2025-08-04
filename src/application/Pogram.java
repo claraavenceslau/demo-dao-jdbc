@@ -33,5 +33,11 @@ public class Pogram {
         for (Seller s : sellers) {
             System.out.println(s);
         }
+
+        System.out.println("\n==== TEST 4 Insert ====");
+        Seller newSeller = new Seller(null, "Grace", "grace@gmail.com", new Date(), 4000.00, dep);
+        sellerDao.insert(newSeller);
+        System.out.printf("New Seller ID: %d\n", newSeller.getId());
+
     }
 }
