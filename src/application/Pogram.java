@@ -39,13 +39,13 @@ public class Pogram {
         sellerDao.insert(newSeller);
         System.out.printf("New Seller ID: %d\n", newSeller.getId());
 
-        System.out.println("\n==== TEST 4 Update ====");
+        System.out.println("\n==== TEST 5 Update ====");
         seller = sellerDao.findById(1);
         seller.setName("Martha Wine");
         sellerDao.update(seller);
         System.out.printf("Update completed! Updated Seller ID: %d\n", seller.getId());
 
-        System.out.println("\n==== TEST 5 Delete ====");
+        System.out.println("\n==== TEST 6 Delete ====");
         System.out.print("Enter the id: ");
         int idDelete = sc.nextInt();
         sellerDao.delete(idDelete);

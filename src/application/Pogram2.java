@@ -4,6 +4,7 @@ import model.dao.DaoFactory;
 import model.dao.DepartmentDao;
 import model.entities.Department;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Pogram2 {
@@ -17,5 +18,11 @@ public class Pogram2 {
         int departmentId = sc.nextInt();
         Department department = departmentDao.findById(departmentId);
         System.out.println(department);
+
+        System.out.println("\n==== TEST 2 FindByDepartment ====");
+        List<Department> departments = departmentDao.findAll();
+        for (Department d : departments) {
+            System.out.println(d);
+        }
     }
 }
