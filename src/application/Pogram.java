@@ -2,7 +2,6 @@ package application;
 
 import model.dao.DaoFactory;
 import model.dao.SellerDao;
-import model.dao.impl.SellerDaoJDBC;
 import model.entities.Department;
 import model.entities.Seller;
 
@@ -17,7 +16,7 @@ public class Pogram {
         SellerDao sellerDao = DaoFactory.createSellerDao();
 
         System.out.println("==== TEST 1 FindById ====");
-        System.out.printf("Digit employee id: ");
+        System.out.print("Digit employee id: ");
         int id = sc.nextInt();
         Seller seller = sellerDao.findById(id);
         System.out.println(seller);

@@ -12,7 +12,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static javax.swing.DropMode.ON;
 
 public class SellerDaoJDBC implements SellerDao {
 
